@@ -1,0 +1,19 @@
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g firebase-tools
+        - flutter channel stable
+        - flutter upgrade
+        - flutter config --enable-web
+    build:
+      commands:
+        - flutter build web
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
